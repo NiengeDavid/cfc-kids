@@ -16,8 +16,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Home | CFCKids",
-  description: "Shining God's light to the world",
+  title: {
+    default: "| CFC Kids",
+    template: "%s | CFC KIds",
+  },
+  description: "Shining God's light to the world.",
+  openGraph: {
+    title: "CFC Kids",
+    description: "Shining God's light to the world.",
+    siteName: "CFC Kids",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CFC Kids",
+    description: "Shining God's light to the world.",
+  },
 };
 
 export default function RootLayout({
