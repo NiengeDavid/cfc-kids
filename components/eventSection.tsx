@@ -19,12 +19,15 @@ export default function EventsSection() {
         <h2 className="text-3xl font-bold text-[#0077b6] mb-8">
           Upcoming Events
         </h2>
-        <ul className="space-y-4 text-lg">
+        <ul className="space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-lg">
           {events.map((event, index) => (
-            <li key={index} className="flex justify-center">
-              <span className="font-semibold">{event.name}</span>
-              <span className="mx-2">-</span>
-              <span>{event.date}</span>
+            <li key={index}>
+              <div className="w-80 mx-auto  border rounded-lg shadow p-4 bg-white">
+                <h3 className="text-xl font-semibold text-[#ff5733]">
+                  {event.name}
+                </h3>
+                <p className="text-gray-600">{event.date}</p>
+              </div>
             </li>
           ))}
         </ul>
