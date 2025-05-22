@@ -20,10 +20,10 @@ export default function AboutSection() {
           </div>
           <div className="w-full">
             <p className="text-lg text-left text-gray-700">
-              At Kid's Church, we create a joyful, safe, and engaging
+              At Kid&apos;s Church, we create a joyful, safe, and engaging
               environment where children learn about Jesus through storytelling,
               play, music, and crafts. We are passionate about helping children
-              discover God's love for them.
+              discover God&apos;s love for them.
             </p>
           </div>
         </div>
