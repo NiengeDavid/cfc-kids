@@ -42,6 +42,24 @@ export const getProductBySlugQuery = groq`
   }
 `;
 
+export const GET_ORDERS_QUERY = `
+  *[_type == "order"] | order(createdAt desc) {
+    _id,
+    customerEmail,
+    items[] {
+      productId,
+      name,
+      quantity,
+      price
+    },
+    totalAmount,
+    paymentReference,
+    isDelivered,
+    createdAt,
+    notes
+  }
+`;
+
 export interface SanityImage {
   url: string;
   alt?: string;
@@ -67,4 +85,37 @@ export interface Product {
 export interface CartItem extends Omit<Product, "image"> {
   quantity: number;
   imageUrl: string;
+}
+
+export interface OrderItem {
+  productId: string;
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+export interface CreateOrderParams {
+  customerEmail: string;
+  items: OrderItem[];
+  totalAmount: number;
+  paymentReference: string;
+  notes?: string;
+}
+
+export interface OrderItem {
+  productId: string;
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+export interface Order {
+  _id: string;
+  customerEmail: string;
+  items: OrderItem[];
+  totalAmount: number;
+  paymentReference: string;
+  isDelivered: boolean;
+  createdAt: string;
+  notes?: string;
 }

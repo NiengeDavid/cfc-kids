@@ -8,9 +8,12 @@ import {
 
 import { createClient, type SanityClient } from "next-sanity";
 import {
+  CreateOrderParams,
+  GET_ORDERS_QUERY,
   getAllProductsQuery,
   getDiscountedProductsQuery,
   getProductBySlugQuery,
+  Order,
   type Product,
 } from "./sanity.queries";
 
@@ -55,4 +58,56 @@ export async function getProductBySlug(
   slug: string
 ): Promise<Product> {
   return await client.fetch(getProductBySlugQuery, { slug });
+}
+
+// Fetch all orders
+export async function getAllOrders(client: SanityClient): Promise<Order[]> {
+  return await client.fetch(GET_ORDERS_QUERY);
+}
+
+// update order delivery status
+export async function updateOrderDeliveryStatus(
+  client: SanityClient,
+  orderId: string,
+  isDelivered: boolean
+): Promise<void> {
+  try {
+    await client.patch(orderId).set({ isDelivered }).commit();
+    console.log(`Order ${orderId} updated successfully`);
+  } catch (error) {
+    console.error("Error updating order delivery status:", error);
+    throw new Error("Failed to update order delivery status");
+  }
+}
+
+// Create a new order
+export async function createOrder(
+  client: SanityClient,
+  {
+    customerEmail,
+    items,
+    totalAmount,
+    paymentReference,
+    notes = "",
+  }: CreateOrderParams
+) {
+  try {
+    const orderDoc = {
+      _type: "order",
+      customerEmail,
+      items,
+      totalAmount,
+      paymentReference,
+      isDelivered: false, // Default value
+      createdAt: new Date().toISOString(),
+      notes,
+    };
+
+    const result = await client.create(orderDoc);
+    console.log("Order created successfully:", result);
+    return result;
+  } catch (error) {
+    console.error("Error creating order:", error);
+    throw new Error("Failed to create order");
+  }
 }

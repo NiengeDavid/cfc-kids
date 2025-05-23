@@ -9,6 +9,7 @@ import { type Product } from "@/sanity/lib/sanity.queries";
 import ProductCard from "@/components/productCard";
 import ProductCardSkeleton from "@/components/productCardSkeleton";
 import Container from "@/components/container";
+import { toast } from "sonner";
 
 export default function ShopPage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,7 +24,11 @@ export default function ShopPage() {
         setProducts(discountedProducts);
         //console.log("Discounted Products:", discountedProducts);
       } catch (error) {
-        console.error("Error fetching products");
+        //console.error("Error fetching products");
+        toast("Network Error", {
+          description:
+            "Error fetching products; kindly check your internet connection.",
+        });
       } finally {
         setLoading(false);
       }

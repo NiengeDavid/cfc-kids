@@ -36,12 +36,12 @@ export default function SuccessPage() {
               Your payment was successful and your treats will be ready soon!
             </p>
             <p className="text-sm text-gray-500 mb-6">
-              A receipt has been sent to your email. For any questions, contact{" "}
+              A receipt has been sent to your email; use it to verify your order. For any questions, contact{" "}
               <a
-                href="mailto:kidschurch@example.com"
+                href="mailto:Cfckids2020@gmail.com"
                 className="text-yellow-600 hover:underline"
               >
-                kidschurch@example.com
+                Cfckids2020@gmail.com
               </a>
             </p>
 

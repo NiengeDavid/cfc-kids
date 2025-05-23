@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Navbar from "./navbar";
 import { Menu, X } from "lucide-react";
+import { Button } from "./ui/button";
 
 interface NavLink {
   href: string;
@@ -24,7 +25,12 @@ export default function LandingNavbar() {
   return (
     <Navbar>
       {/* Mobile menu button */}
-      <div className="md:hidden">
+      <div className="md:hidden flex items-center gap-2">
+        <Button variant="ghost" asChild>
+          <a href="/shop" className="font-bold hover:text-orange-500">
+            Shop
+          </a>
+        </Button>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-gray-800 focus:outline-none"

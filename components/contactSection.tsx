@@ -9,7 +9,7 @@ export default function ContactSection() {
           </p>
           <div className="mt-6">
             <a
-              href="mailto:kidschurch@example.com"
+              href="mailto:Cfckids2020@gmail.com?subject=Question About Kids Church"
               className="inline-block bg-yellow-400 hover:bg-yellow-500 text-yellow-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200"
             >
               Email Our Team

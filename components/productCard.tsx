@@ -75,7 +75,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="flex gap-2">
           <Button
             onClick={handleAddToCart}
-            className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-yellow-900"
+            className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-yellow-900 cursor-pointer"
             size="sm"
           >
             <ShoppingCart className="mr-2 h-4 w-4" />
@@ -85,7 +85,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             onClick={handleBuyNow}
             variant="outline"
             size="sm"
-            className="flex-1 border border-yellow-400 text-yellow-900"
+            className="flex-1 border border-yellow-400 text-yellow-900 cursor-pointer"
           >
             Buy Now
           </Button>

@@ -1,13 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-// Extend the Window interface to include PaystackPop
-declare global {
-  interface Window {
-    PaystackPop?: any;
-  }
-}
 import {
   Dialog,
   DialogContent,
@@ -21,6 +14,17 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { createOrder } from "@/sanity/lib/sanity.client";
+import { getClient } from "@/sanity/lib/sanity.client";
+import { writeToken } from "@/sanity/lib/sanity.api";
+
+// Extend the Window interface to include PaystackPop
+declare global {
+  interface Window {
+    PaystackPop?: any;
+  }
+}
 
 export function CartModal() {
   const {
@@ -35,6 +39,7 @@ export function CartModal() {
 
   const router = useRouter();
 
+  const client = getClient({ token: writeToken });
   const [isProcessing, setIsProcessing] = useState(false);
   const [email, setEmail] = useState("");
   const [showEmailModal, setShowEmailModal] = useState(false);
@@ -66,7 +71,8 @@ export function CartModal() {
     script.src = "https://js.paystack.co/v1/inline.js";
     script.onload = () => {
       if (typeof window.PaystackPop === "undefined") {
-        console.error("PaystackPop is not defined");
+        // console.error("PaystackPop is not defined");
+        toast.error("Failed to load Paystack payment gateway");
         setIsProcessing(false);
         return;
       }
@@ -77,12 +83,16 @@ export function CartModal() {
         email,
         amount: cartTotal * 100, // Convert to kobo
         currency: "NGN",
+        metadata: {
+          cartItems, // Pass cartItems here
+        },
         callback: (response: any) => {
           //console.log("Payment successful:", response);
-          handlePaymentSuccess();
+          handlePaymentSuccess(response);
         },
         onClose: () => {
-          console.log("Payment window closed");
+          //console.log("Payment window closed");
+          toast.error("Payment window closed");
           setIsProcessing(false);
         },
       });
@@ -90,16 +100,41 @@ export function CartModal() {
       paystack.openIframe(); // Open the Paystack payment modal
     };
     script.onerror = () => {
-      console.error("Failed to load Paystack script");
+      // console.error("Failed to load Paystack script");
+      toast.error("Failed to load Paystack payment gateway");
       setIsProcessing(false);
     };
     document.body.appendChild(script);
   };
 
-  const handlePaymentSuccess = () => {
-    console.log("Payment successful!");
-    // Optionally redirect to a success page
-    router.push("/success");
+  const handlePaymentSuccess = async (response: any) => {
+    const orderDetails = {
+      customerEmail: email,
+      items: cartItems.map((item) => ({
+        _key: item._id,
+        productId: item._id,
+        name: item.name,
+        quantity: item.quantity,
+        price: item.discountPrice || item.price,
+      })),
+      totalAmount: cartTotal,
+      paymentReference: response.reference,
+      notes: "Order Created successfully",
+    };
+
+    try {
+      const result = await createOrder(client, orderDetails);
+      //console.log("Order created:", result);
+      toast.success(`Payment successful! Reference: ${response.reference}`);
+      // Optionally redirect to a success page
+      // router.push("/success");
+    } catch (error) {
+      //console.error("Failed to create order:", error);
+      toast.error("Failed to create order. Please contact support.");
+    } finally {
+      setIsProcessing(false);
+      router.push("/success");
+    }
   };
 
   return (
@@ -135,6 +170,7 @@ export function CartModal() {
                       src={item.imageUrl}
                       alt={item.name}
                       fill
+                      sizes="100vw"
                       className="object-cover"
                       priority
                     />

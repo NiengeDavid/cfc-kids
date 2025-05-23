@@ -25,7 +25,7 @@ export default function WelcomeCard() {
       <div className="bg-blue-500 text-white py-2 px-4 rounded-lg mb-6 flex items-center justify-center gap-2 animate-pulse">
         <Gift className="h-5 w-5" />
         <span className="font-bold">SPECIAL OFFER:</span>
-        <span>First 50 orders get free Bible stickers!</span>
+        <span>First 50 orders get freebies at the breakfast!</span>
         <span className="hidden sm:inline">•</span>
         <span className="hidden sm:inline">Ends in 2 days!</span>
       </div>
