@@ -10,22 +10,46 @@ interface Instructor {
 export default function InstructorsSection() {
   const instructors: Instructor[] = [
     {
-      name: "Ms. Joy",
-      role: "Lead Coordinator",
-      image: "https://placehold.co/150x150?text=Ms+Joy",
-      alt: "Ms. Joy",
+      name: "Mrs Sarah Aba",
+      role: "CFC Abuja Coordinator",
+      image: "/assets/abj.jpeg",
+      alt: "Ms. Sarah",
     },
     {
-      name: "Mr. Caleb",
-      role: "Games & Bible Quiz Master",
-      image: "https://placehold.co/150x150?text=Mr+Caleb",
-      alt: "Mr. Caleb",
+      name: "Mrs Mercy Denen",
+      role: "CFC Gboko Coordinator",
+      image: "/assets/gboko.jpeg",
+      alt: "Mrs Mercy Denen",
     },
     {
-      name: "Aunty Grace",
-      role: "Arts & Worship Leader",
-      image: "https://placehold.co/150x150?text=Aunty+Grace",
-      alt: "Aunty Grace",
+      name: "Ms. Babie",
+      role: "CFC Makurdi Coordinator",
+      image: "/assets/mkd.jpeg",
+      alt: "Ms. Babie",
+    },
+    {
+      name: "Mr Victor Wealth",
+      role: "CFC Kaduna Coordinator",
+      image: "/assets/kd.jpeg",
+      alt: "Mr Victor Wealth",
+    },
+    {
+      name: "Mrs Bola Adeolu",
+      role: "CFC Sagamu Coordinator",
+      image: "/assets/sagamu.jpeg",
+      alt: "Mrs Bola Adeolu",
+    },
+    {
+      name: "Mrs. Stephanie Igyungu",
+      role: "CFC Lagos Coordinator",
+      image: "/assets/lag.jpeg",
+      alt: "Mrs. Stephanie Igyungu",
+    },
+    {
+      name: "Pst Blessing Ingyape",
+      role: "Global Coordinator",
+      image: "/assets/global.jpeg",
+      alt: "Pst Blessing Ingyape",
     },
   ];
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Container from "./container";
 
-const kidsChurchImage = "/assets/crochet.jpeg";
+const kidsChurchImage = "/assets/about.jpg";
 
 export default function AboutSection() {
   return (

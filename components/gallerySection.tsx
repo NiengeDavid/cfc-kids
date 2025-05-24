@@ -1,9 +1,17 @@
 export default function GallerySection() {
   const galleryImages = [
-    { src: "https://placekitten.com/200/200", alt: "Activity 1" },
-    { src: "https://placebear.com/200/200", alt: "Activity 2" },
-    { src: "https://placebeard.it/200x200", alt: "Activity 3" },
-    { src: "https://placekitten.com/201/201", alt: "Activity 4" },
+    { src: "/assets/1.jpg", alt: "Activity 1" },
+    { src: "/assets/2.jpg", alt: "Activity 2" },
+    { src: "/assets/3.jpg", alt: "Activity 3" },
+    { src: "/assets/4.jpg", alt: "Activity 4" },
+    { src: "/assets/5.jpg", alt: "Activity 5" },
+    { src: "/assets/6.jpg", alt: "Activity 6" },
+    { src: "/assets/7.jpg", alt: "Activity 7" },
+    { src: "/assets/8.jpg", alt: "Activity 8" },
+    { src: "/assets/9.jpg", alt: "Activity 9" },
+    { src: "/assets/10.jpg", alt: "Activity 10" },
+    { src: "/assets/11.jpg", alt: "Activity 11" },
+    { src: "/assets/12.jpg", alt: "Activity 12" },
   ];
 
   return (
