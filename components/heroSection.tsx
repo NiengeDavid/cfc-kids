@@ -9,7 +9,8 @@ export default function HeroSection() {
           Welcome to CFC Kid&apos;s Church!
         </h1>
         <p className="text-xl md:text-2xl text-gray-800">
-          Fun. Faith. Friends. Let&apos;s grow together in God&apos;s Word!
+          Filling our world with the beautiful message of our Lord Jesus Christ,
+          presenting every child mature in Christ.
         </p>
       </div>
     </section>
