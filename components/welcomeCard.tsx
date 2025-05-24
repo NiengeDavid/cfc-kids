@@ -27,7 +27,7 @@ export default function WelcomeCard() {
         <span className="font-bold">SPECIAL OFFER:</span>
         <span>First 50 orders get freebies at the breakfast!</span>
         <span className="hidden sm:inline">•</span>
-        <span className="hidden sm:inline">Ends in 2 days!</span>
+        <span className="hidden sm:inline">Ends in 16 hours!</span>
       </div>
 
       {/* Welcome Card */}
@@ -49,7 +49,7 @@ export default function WelcomeCard() {
             parent/guardian!
           </p>
           <p className="text-white/90 mb-6">
-            Celebrate with our special collection of faith-filled goodies at
+            Celebrate with our special collection of goodies and faith-filled materials at
             <span className="font-bold"> discounted prices!</span>
           </p>
           <div className="flex justify-center gap-4">
@@ -58,7 +58,7 @@ export default function WelcomeCard() {
               className="bg-white text-orange-500 hover:bg-white/90 shadow-md"
               asChild
             >
-              <Link href="#discounted-products">
+              <Link href="#products">
                 <Gift className="mr-2 h-4 w-4" />
                 View Discounts
               </Link>
@@ -74,7 +74,7 @@ export default function WelcomeCard() {
         </CardContent>
         <CardFooter className="justify-center">
           <p className="text-sm text-white/80">
-            Limited time offers • Free stickers with every purchase
+            Limited time offers • Freebies with every purchase
           </p>
         </CardFooter>
       </Card>
