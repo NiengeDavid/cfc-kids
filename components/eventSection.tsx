@@ -5,9 +5,9 @@ interface Event {
 
 export default function EventsSection() {
   const events: Event[] = [
-    { name: "Children's Praise Day", date: "June 1st" },
-    { name: "Creative Sunday", date: "June 8th" },
-    { name: "Bible Quiz", date: "June 15th" },
+    { name: "Exhibition ", date: "May 25th" },
+    { name: "Mentorship classes", date: "Every 3rd Sunday" },
+    // { name: "Bible Quiz", date: "June 15th" },
   ];
 
   return (
@@ -19,7 +19,7 @@ export default function EventsSection() {
         <h2 className="text-3xl font-bold text-[#0077b6] mb-8">
           Upcoming Events
         </h2>
-        <ul className="space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-lg">
+        <ul className="space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 text-lg">
           {events.map((event, index) => (
             <li key={index}>
               <div className="w-80 mx-auto  border rounded-lg shadow p-4 bg-white">
