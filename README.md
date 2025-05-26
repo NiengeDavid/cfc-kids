@@ -6,7 +6,7 @@ Welcome to the official website for **CFC Kids Ministry** ([cfckids.com.ng](http
 
 ## 🧒 About CFC Kids
 
-The CFC Kids Ministry site supports our mission to nurture, educate, and connect children within our ministry. The landing page highlights our story, instructors, event gallery, and gives parents a way to reach out. The integrated shop empowers our kids and team to sell creative products, with seamless orders and secure payments.
+The CFC Kids Ministry site supports our mission to nurture, educate, and connect children within the ministry. The landing page highlights our story, instructors, event gallery, and gives parents a way to reach out. The integrated shop empowers the kids and team to sell creative products, with seamless orders and secure payments.
 
 ---
 
@@ -95,12 +95,13 @@ Feel free to explore the landing page and try out the shop!
 ---
 
 ## 🖼️ Screenshots
+[![Landing Page](docs/screenshots/lander.png)](docs/screenshots/lander.png)
+[![Gallery Section](docs/screenshots/gallery.png)](docs/screenshots/gallery.png)
+[![Shop Page](docs/screenshots/shop.png)](docs/screenshots/shop.png)
+[![Cart](docs/screenshots/cart.png)](docs/screenshots/cart.png)
+[![Payment](docs/screenshots/payment.png)](docs/screenshots/payment.png)
+[![Success Page](docs/screenshots/success.png)](docs/screenshots/success.png)
 
-<!-- Add screenshots here when available -->
-<!-- Example:
-![Landing Page](docs/screenshots/landing.png)
-![Shop Page](docs/screenshots/shop.png)
--->
 
 ---
 
